@@ -4,21 +4,12 @@ env:
   # A tag or branch name or a commit hash for the vda5050_core repo, for which
   # to build wheels. This is normally set to `main` in the main branch of this
   # repo, and to a tag name (e.g., `v2.3.2`) on a release branch.
-  SOURCE_REF_TO_BUILD: develop
+  SOURCE_REF_TO_BUILD: main
 
 on:
-  schedule:
-    #        ┌───────────── minute (0 - 59)
-    #        │  ┌───────────── hour (0 - 23)
-    #        │  │ ┌───────────── day of the month (1 - 31)
-    #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
-    #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-    #        │  │ │ │ │
-    - cron: "42 2 * * SUN,WED"
   pull_request:
     branches:
       - main
-      - maintenance/**
   push:
     branches:
       - main  # FOR TESTING ONLY
@@ -63,7 +54,7 @@ jobs:
       - name: Checkout vda5050_core
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ros-industrial/vda5050_core
+          repository: Briancbn/vda5050_core
           ref: ${{ env.SOURCE_REF_TO_BUILD }}
           path: vda5050_core-src
           persist-credentials: false
@@ -98,7 +89,7 @@ jobs:
       - name: Checkout vda5050_core
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ros-industrial/vda5050_core
+          repository: Briancbn/vda5050_core
           ref: ${{ env.SOURCE_REF_TO_BUILD }}
           persist-credentials: false
 
@@ -151,7 +142,7 @@ jobs:
       - name: Checkout vda5050_core
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: ros-industrial/vda5050_core
+          repository: Briancbn/vda5050_core
           ref: ${{ env.SOURCE_REF_TO_BUILD }}
           path: vda5050_core-src
           fetch-depth: 0
