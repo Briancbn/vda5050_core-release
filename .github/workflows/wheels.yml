@@ -19,7 +19,7 @@ on:
         description: Which PyPI environment to upload to, if any
         required: true
         type: choice
-        options: ["testpypi", "pypi"]
+        options: ["none", "testpypi", "pypi"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -54,7 +54,7 @@ jobs:
       - name: Checkout vda5050_core
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Briancbn/vda5050_core
+          repository: ros-industrial/vda5050_core
           ref: ${{ env.SOURCE_REF_TO_BUILD }}
           path: vda5050_core-src
           persist-credentials: false
@@ -89,7 +89,7 @@ jobs:
       - name: Checkout vda5050_core
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Briancbn/vda5050_core
+          repository: ros-industrial/vda5050_core
           ref: ${{ env.SOURCE_REF_TO_BUILD }}
           persist-credentials: false
 
@@ -142,7 +142,7 @@ jobs:
       - name: Checkout vda5050_core
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Briancbn/vda5050_core
+          repository: ros-industrial/vda5050_core
           ref: ${{ env.SOURCE_REF_TO_BUILD }}
           path: vda5050_core-src
           fetch-depth: 0
